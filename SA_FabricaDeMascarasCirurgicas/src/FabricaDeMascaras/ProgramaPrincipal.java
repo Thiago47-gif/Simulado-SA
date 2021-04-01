@@ -16,7 +16,7 @@ public class ProgramaPrincipal {
 		int i = 0; //Índece
 		
 		//Lista de cadastros
-		ArrayList<Cliente> cliente = new ArrayList<>();
+		ArrayList<Cliente> cliente = new ArrayList();
 		ArrayList<Funcionario> funcionario = new ArrayList<>();
 		
 		//Ínstancia de Classes
@@ -104,7 +104,7 @@ public class ProgramaPrincipal {
 						clienteCadastro.setEmail(email);
 						
 						
-                		cliente.add(clienteCadastro);//Adicionar os dados lidos no ArrayList
+                		cliente.add(i,clienteCadastro);//Adicionar os dados lidos no ArrayList
                 		
                 		System.out.println("\n\nDeseja cadastrar mais clientes ? ");
                 		System.out.println("Opção 1 - sim");
