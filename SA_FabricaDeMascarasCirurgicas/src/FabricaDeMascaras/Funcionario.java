@@ -18,6 +18,8 @@ public class Funcionario extends Pessoa {
 		Cargo = cargo;
 	}
 	
+	
+	//Métodos Get e Set da classe Pessoa
 	public String getNome() {
 		return Nome;
 	}
@@ -49,5 +51,57 @@ public class Funcionario extends Pessoa {
 	public void setTelefone(int telefone) {
 		Telefone = telefone;
 	} 
+	
+	
+	//Métodos Get e Set da classe Endereco
+	public String getRua() {
+		return Rua;
+	}
+	public void setRua(String rua) {
+		Rua = rua;
+	}
+	public String getBairro() {
+		return Bairro;
+	}
+	public void setBairro(String bairro) {
+		Bairro = bairro;
+	} 
+	public int getNumero() {
+		return Numero;
+	}
+	public void setNumero(int numero) {
+		Numero = numero;
+	}
+	public String getCidade() {
+		return Cidade;
+	} 
+	public void setCidade(String cidade) {
+		Cidade = cidade;
+	}
+	public String getEstado() {
+		return Estado;
+	}
+	public void setEstado(String estado) {
+		Estado = estado;
+	}
+	
+	
+	@Override
+	public String toString() {
+		
+	return "ID do Funcionário: "+ IdFuncionario +
+				"\nNome: "+ Nome +
+				"\nCPF: "+ Cpf +
+				"\nCargo: "+ Cargo +
+				"\nIdade: "+ Idade +
+				"\nTelefone: "+ Telefone +
+				"\nE-mail: "+ Email +
+				"\nEndereço: Rua " + Rua +", " +
+				"Bairro "+ Bairro +", " +
+				"N° " + Numero +", " +
+				"\nCidade: "+ Cidade +
+				"\nEstado: "+ Estado;
+				
+	}
 	
 }

@@ -17,11 +17,14 @@ public class ProgramaPrincipal {
 		
 		//Lista de cadastros
 		ArrayList<Cliente> cliente = new ArrayList<>();
+		ArrayList<Funcionario> funcionario = new ArrayList<>();
 		
 		//Ínstancia de Classes
 		Cliente clienteCadastro = new Cliente();
+		Funcionario funcionarioCadastro = new Funcionario();
 		
 		int idCliente = 0;
+		int idFuncionario = 0;
 		
 		do //Inicializando Ciclo de repetição
         {
@@ -54,7 +57,7 @@ public class ProgramaPrincipal {
                 	for (i=0; i<99999; i++) {
                 		
                 		idCliente = i;
-						System.out.println("\n\nCadastro N°: " + idCliente +"\n");
+						System.out.println("\n\nID: " + idCliente +"\n");
 						clienteCadastro.setIdCliente(idCliente);
 						
 						System.out.print("\nNome: ");
@@ -101,14 +104,17 @@ public class ProgramaPrincipal {
 						clienteCadastro.setEmail(email);
 						
 						
-						
-						
-						
-						
-						
-						
-                		cliente.add(clienteCadastro);
-                		break;
+                		cliente.add(clienteCadastro);//Adicionar os dados lidos no ArrayList
+                		
+                		System.out.println("\n\nDeseja cadastrar mais clientes ? ");
+                		System.out.println("Opção 1 - sim");
+                		System.out.println("Opção 2 - não");
+                		System.out.print("\nOpção: ");
+                		int repita = scan.nextInt();
+                		
+                		if (repita == 2) {
+                			break; //Fim da estrutura de repetição
+                		}
                 	}
 			
                 	
@@ -118,9 +124,91 @@ public class ProgramaPrincipal {
                 	
                 	
                 	
+                
+                	
+                	break;
+                	
+                case 2:
                 	
                 	
-			break;
+                	System.out.println("\n\n    ==================================");
+                	System.out.println("    ******** CADASTRAR CLIENTE *******");
+                	System.out.println("    ==================================\n\n\n");
+                	
+                	
+                	
+                	
+                	for (i=0; i<99999; i++) {
+                		
+                		idFuncionario = i;
+						System.out.println("\n\nID: " + idFuncionario +"\n");
+						funcionarioCadastro.setIdFuncionario(idFuncionario);
+						
+						System.out.print("\nNome: ");
+						String nome = scan.next();
+						funcionarioCadastro.setNome(nome);
+						
+						System.out.print("\nCPF: ");
+						int cpf = scan.nextInt();
+						funcionarioCadastro.setCpf(cpf);
+						
+						System.out.print("\nCargo: ");
+						String cargo = scan.next();
+						funcionarioCadastro.setCargo(cargo);
+						
+						System.out.print("\nIdade: ");
+						int idade = scan.nextInt();
+						funcionarioCadastro.setIdade(idade);
+						 
+						System.out.print("\nTelefone: ");
+						int telefone = scan.nextInt();
+						funcionarioCadastro.setTelefone(telefone);
+						 
+						
+						System.out.println("\n\nInsira seu Endereço.");
+						
+						System.out.print("\nRua: ");
+						String rua = scan.next();
+						funcionarioCadastro.setRua(rua);
+						
+						System.out.print("Bairro: ");
+						String bairro = scan.next();
+						funcionarioCadastro.setBairro(bairro);
+						
+						System.out.print("Número: ");
+						int numero = scan.nextInt();
+						funcionarioCadastro.setNumero(numero);
+						
+						System.out.print("Cidade: ");
+						String cidade = scan.next();
+						funcionarioCadastro.setCidade(cidade);
+						
+						System.out.print("Estado: ");
+						String estado = scan.next();
+						funcionarioCadastro.setEstado(estado);
+						
+						System.out.print("\nE-mail: ");
+						String email = scan.next();
+						funcionarioCadastro.setEmail(email);
+						
+						
+                		funcionario.add(funcionarioCadastro);
+                		
+                		
+                		System.out.println("\n\nDeseja cadastrar mais Funcionarios ? ");
+                		System.out.println("Opção 1 - sim");
+                		System.out.println("Opção 2 - não");
+                		System.out.print("\nOpção: ");
+                		int repita = scan.nextInt();
+                		
+                		if (repita == 2) {
+                			break; //Fim da estrutura de repetição
+                		}
+                	}
+                	
+                	
+                	break;
+                	
             }
 			System.out.print("\n\n  Digite '1' para voltar ao menu ou '2' para sair do programa: ");
             menu = scan.nextInt(); //Voltar ciclo de repetição do menu (do while)

@@ -82,11 +82,19 @@ public class Cliente extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return "\nNome: "+ Nome +
+		
+	return "ID do Cliente: "+ IdCliente +
+				"\nNome: "+ Nome +
 				"\nCPF: "+ Cpf +
 				"\nIdade: "+ Idade +
 				"\nTelefone: "+ Telefone +
-				"\nE-mail: "+ Email;
+				"\nE-mail: "+ Email +
+				"\nEndereço: Rua " + Rua +", " +
+				"Bairro "+ Bairro +", " +
+				"N° " + Numero +", " +
+				"\nCidade: "+ Cidade +
+				"\nEstado: "+ Estado;
+				
 	}
 	
 }
