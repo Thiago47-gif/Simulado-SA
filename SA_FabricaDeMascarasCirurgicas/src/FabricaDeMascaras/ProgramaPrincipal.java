@@ -16,12 +16,14 @@ public class ProgramaPrincipal {
 		int i = 0; //Índece
 		
 		//Lista de cadastros
-		ArrayList<Cliente> cliente = new ArrayList();
-		ArrayList<Funcionario> funcionario = new ArrayList<>();
+		ArrayList<Cliente> listCliente = new ArrayList<>();
+		ArrayList<Funcionario> listFuncionario = new ArrayList<>();
 		
 		//Ínstancia de Classes
 		Cliente clienteCadastro = new Cliente();
 		Funcionario funcionarioCadastro = new Funcionario();
+		Estoque codMateriais = new Estoque();
+		
 		
 		int idCliente = 0;
 		int idFuncionario = 0;
@@ -33,13 +35,13 @@ public class ProgramaPrincipal {
 			System.out.println("    *                   MENU PRINCIPAL                 *");
 			System.out.println("    *                                                  *");
 			System.out.println("    *                1- MANTER CLIENTE                 *");
-			System.out.println("    *                2- EDITAR RECEITAS                *");
-			System.out.println("    *                3- ELIMINAR RECEITAS              *");
+			System.out.println("    *                2- MANTER FUNCIONARIO             *");
+			System.out.println("    *                3- MATERIAIS                      *");
 			System.out.println("    *                4- RECEITAS CADASTRADAS           *");
 			System.out.println("    *                5- CONSULTA                       *");
 			System.out.println("    ****************************************************\n\n");
 			
-			System.out.print("Digite a opção desejada no menu:  ");
+			System.out.print("    Digite a opção desejada no menu:  ");
             int respostaMenu = scan.nextInt(); //Opção do menu
 			
             switch (respostaMenu) //Decisão do menu
@@ -104,7 +106,8 @@ public class ProgramaPrincipal {
 						clienteCadastro.setEmail(email);
 						
 						
-                		cliente.add(i,clienteCadastro);//Adicionar os dados lidos no ArrayList
+                		listCliente.add(i,clienteCadastro);//Adicionar os dados lidos no ArrayList
+                		
                 		
                 		System.out.println("\n\nDeseja cadastrar mais clientes ? ");
                 		System.out.println("Opção 1 - sim");
@@ -118,7 +121,7 @@ public class ProgramaPrincipal {
                 	}
 			
                 	
-                	for (Cliente c : cliente) {
+                	for (Cliente c : listCliente) {
                 		System.out.println(c);
                 	}
                 	
@@ -131,9 +134,9 @@ public class ProgramaPrincipal {
                 case 2:
                 	
                 	
-                	System.out.println("\n\n    ==================================");
-                	System.out.println("    ******** CADASTRAR CLIENTE *******");
-                	System.out.println("    ==================================\n\n\n");
+                	System.out.println("\n\n    ======================================");
+                	System.out.println("    ******** CADASTRAR FUNCIONARIO *******");
+                	System.out.println("    ======================================\n");
                 	
                 	
                 	
@@ -192,7 +195,7 @@ public class ProgramaPrincipal {
 						funcionarioCadastro.setEmail(email);
 						
 						
-                		funcionario.add(funcionarioCadastro);
+                		listFuncionario.add(funcionarioCadastro);
                 		
                 		
                 		System.out.println("\n\nDeseja cadastrar mais Funcionarios ? ");
@@ -208,6 +211,66 @@ public class ProgramaPrincipal {
                 	
                 	
                 	break;
+                	
+                case 3:
+                	
+                	System.out.println("\n\n    ==========================");
+                	System.out.println("    ******** MATERIAIS *******");
+                	System.out.println("    ==========================\n\n");
+                	
+                	
+                	System.out.println("    1 - Materias em estoque.");
+                	System.out.println("    2 - Comprar materias (Fornecedor).");
+                	System.out.print("    Opção: ");
+                	int opcao = scan.nextInt();
+                	
+                	switch (opcao) {
+                	
+                	case 1: 
+                		
+                		System.out.println("\n\n    =====================================");
+                    	System.out.println("    ******** MATERIAIS EM ESTOQUE *******");
+                    	System.out.println("    =====================================\n\n");
+                		
+                		System.out.println("Nome: TNT (6 unidade)");
+                		System.out.println("Codigo: "+ codMateriais.getTNT());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdTNT());
+                		
+                		
+                		System.out.println("\nNome: SMS (6 unidades)");
+                		System.out.println("Codigo: "+ codMateriais.getSMS());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdSMS());
+                		
+                		System.out.println("\nNome: Clip Nasal (6 unidades)");
+                		System.out.println("Codigo: "+ codMateriais.getClipNasal());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdClipNasal());
+                		
+                		System.out.println("\nNome: Caixa de elástico (1 unidade)");
+                		System.out.println("Codigo: "+ codMateriais.getCaixaElástico());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdCaixaElástico());
+                		
+                		System.out.println("\nNome: Caixa 50 unidades de mascaras (200 unidades)");
+                		System.out.println("Codigo: "+ codMateriais.getCaixaUnidade());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdCaixaUnidade());
+                		
+                		System.out.println("\nNome: Caixa Master (10 unidades)");
+                		System.out.println("Codigo: "+ codMateriais.getCaixaMaster());
+                		System.out.println("Quantidade: "+ codMateriais.getQtdCaixaMaster());
+                    	
+                    	
+                		
+                	}
+                	
+					
+						
+					
+					
+                	
+                	
+                	
+                	
+                	
+                	
                 	
             }
 			System.out.print("\n\n  Digite '1' para voltar ao menu ou '2' para sair do programa: ");

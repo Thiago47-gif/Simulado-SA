@@ -3,7 +3,8 @@ package FabricaDeMascaras;
 public class Cliente extends Pessoa {
 	
 	private int IdCliente;
-
+	
+	
 	public int getIdCliente() {
 		return IdCliente;
 	}
