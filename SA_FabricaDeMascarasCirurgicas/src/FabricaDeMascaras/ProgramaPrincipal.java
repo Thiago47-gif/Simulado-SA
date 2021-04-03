@@ -317,7 +317,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n\n    Nome: TNT (6 unidade)");
 	                		System.out.println("    Codigo: "+ materiais.getTNT());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoTNT());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoTNT()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdTNTComprada = scan.nextInt();
 	                		materiais.setQtdTNTComprada(qtdTNTComprada);
@@ -332,7 +332,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n    Nome: SMS (6 unidades)");
 	                		System.out.println("    Codigo: "+ materiais.getSMS());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoSMS());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoSMS()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdSMSComprada = scan.nextInt();
 	                		materiais.setQtdSMSComprada(qtdSMSComprada);
@@ -347,7 +347,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n    Nome: Clip Nasal (6 unidades)");
 	                		System.out.println("    Codigo: "+ materiais.getClipNasal());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoClipNasal());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoClipNasal()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdClipNasalComprada = scan.nextInt();
 	                		materiais.setQtdClipNasal(qtdClipNasalComprada);
@@ -362,7 +362,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n    Nome: Caixa de elástico (1 unidade)");
 	                		System.out.println("    Codigo: "+ materiais.getCaixaElástico());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaElastico());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaElastico()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaElásticoComprada = scan.nextInt();
 	                		materiais.setQtdCaixaElástico(qtdCaixaElásticoComprada);
@@ -377,7 +377,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n    Nome: Caixa 50 unidades de mascaras (200 unidades)");
 	                		System.out.println("    Codigo: "+ materiais.getCaixaUnidade());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaUnidade());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaUnidade()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaUnidadeComprada = scan.nextInt();
 	                		materiais.setQtdCaixaUnidade(qtdCaixaUnidadeComprada);
@@ -392,7 +392,7 @@ public class ProgramaPrincipal {
 							
 							System.out.println("\n    Nome: Caixa Master (10 unidades)");
 	                		System.out.println("    Codigo: "+ materiais.getCaixaMaster());
-	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaMaster());
+	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaMaster()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaMasterComprada = scan.nextInt();
 	                		materiais.setQtdCaixaMaster(qtdCaixaMasterComprada);
