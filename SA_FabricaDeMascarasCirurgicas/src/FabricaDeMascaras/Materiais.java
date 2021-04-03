@@ -2,6 +2,7 @@ package FabricaDeMascaras;
 
 public class Materiais {
 
+	//Codigo dos materiais
 	protected int TNT = 561;
 	protected int SMS = 562;
 	protected int ClipNasal = 563;

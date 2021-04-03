@@ -2,12 +2,12 @@ package FabricaDeMascaras;
 
 public class Fornecedor extends Materiais {
 	
-	private double PrecoTNT = 149.90; 
-	private double PrecoSMS = 169.90;
-	private double PrecoClipNasal = 79.90;
-	private double PrecoCaixaUnidade = 99.90;
-	private double PrecoCaixaElastico = 39.90;
-	private double PrecoCaixaMaster = 29.90;
+	public double PrecoTNT = 149.90; 
+	public double PrecoSMS = 169.90;
+	public double PrecoClipNasal = 79.90;
+	public double PrecoCaixaUnidade = 99.90;
+	public double PrecoCaixaElastico = 39.90;
+	public double PrecoCaixaMaster = 29.90;
 	
 	
 	//Método Get
@@ -24,7 +24,7 @@ public class Fornecedor extends Materiais {
 	public double getPrecoClipNasal() {
 		return PrecoClipNasal;
 	}
-
+ 
 
 	public double getPrecoCaixaUnidade() {
 		return PrecoCaixaUnidade;

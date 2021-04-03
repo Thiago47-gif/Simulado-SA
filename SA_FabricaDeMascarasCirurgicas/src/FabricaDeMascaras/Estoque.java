@@ -10,6 +10,12 @@ public class Estoque extends Materiais {
 	private int QtdCaixaUnidade;
 	private int QtdCaixaMaster;
 	
+	private int QtdTNTComprada;
+	private int QtdSMSComprada;
+	private int QtdClipNasalComprada;
+	private int QtdCaixaElásticoComprada;
+	private int QtdCaixaUnidadeComprada;
+	private int QtdCaixaMasterComprada;
 	
 	//Método Get e Set
 	public int getQtdTNT() {
@@ -102,7 +108,74 @@ public class Estoque extends Materiais {
 	public int getCaixaMaster() {
 		return CaixaMaster;
 	}
+	
+	
+	
 
+
+	public int getQtdTNTComprada() {
+		return QtdTNTComprada;
+	}
+
+
+	public void setQtdTNTComprada(int qtdTNTComprada) {
+		QtdTNTComprada = qtdTNTComprada;
+	}
+
+
+	public int getQtdSMSComprada() {
+		return QtdSMSComprada;
+	}
+
+
+	public void setQtdSMSComprada(int qtdSMSComprada) {
+		QtdSMSComprada = qtdSMSComprada;
+	}
+
+
+	public int getQtdClipNasalComprada() {
+		return QtdClipNasalComprada;
+	}
+
+
+	public void setQtdClipNasalComprada(int qtdClipNasalComprada) {
+		QtdClipNasalComprada = qtdClipNasalComprada;
+	}
+
+
+	public int getQtdCaixaElásticoComprada() {
+		return QtdCaixaElásticoComprada;
+	}
+
+
+	public void setQtdCaixaElásticoComprada(int qtdCaixaElásticoComprada) {
+		QtdCaixaElásticoComprada = qtdCaixaElásticoComprada;
+	}
+
+
+	public int getQtdCaixaUnidadeComprada() {
+		return QtdCaixaUnidadeComprada;
+	}
+
+
+	public void setQtdCaixaUnidadeComprada(int qtdCaixaUnidadeComprada) {
+		QtdCaixaUnidadeComprada = qtdCaixaUnidadeComprada;
+	}
+
+
+	public int getQtdCaixaMasterComprada() {
+		return QtdCaixaMasterComprada;
+	}
+
+
+	public void setQtdCaixaMasterComprada(int qtdCaixaMasterComprada) {
+		QtdCaixaMasterComprada = qtdCaixaMasterComprada;
+	}
+	
+
+	
+	
+	
 
 
 }
