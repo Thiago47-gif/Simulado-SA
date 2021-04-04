@@ -15,6 +15,7 @@ public class ProgramaPrincipal {
 		
 		int menu;//Opção de repetição do ciclo
 		int subMenu;
+		int subMenu2;
 		
 		int i = 0; //Índece
 		
@@ -33,13 +34,17 @@ public class ProgramaPrincipal {
 		int idCliente = 0;
 		int idFuncionario = 0;
 		
+		//Estoque de Mascaras
+		int estoqueMascaras = 0;
+		int estoqueCaixaMaster =0;
+		
 		
 		
 		//Somar materiais no estoque
 		int somaTNT = 0;
 		int somaSMS = 0;
 		int somaClipNasal = 0;
-		int somaCaixaElástico = 0;
+		int somaCaixaElastico = 0;
 		int somaCaixaUnidade = 0;
 		int somaCaixaMaster = 0;
 		
@@ -47,9 +52,12 @@ public class ProgramaPrincipal {
 		int subtracaoTNT = 0;
 		int subtracaoSMS = 0;
 		int subtracaoClipNasal = 0;
-		int subtracaoCaixaElástico = 0;
+		int subtracaoCaixaElastico = 0;
 		int subtracaoCaixaUnidade = 0;
 		int subtracaoCaixaMaster = 0;
+		
+		//Soma produção com o estoque
+		int somaProducao = 0;
 		
 		
 		
@@ -59,10 +67,11 @@ public class ProgramaPrincipal {
 			System.out.println("\n\n\n    ****************************************************");
 			System.out.println("    *                   MENU PRINCIPAL                 *");
 			System.out.println("    *                                                  *");
-			System.out.println("    *                1- MANTER CLIENTE                 *");
-			System.out.println("    *                2- MANTER FUNCIONARIO             *");
-			System.out.println("    *                3- MATERIAIS                      *");
-			System.out.println("    *                4- PRODUÇÃO DE MÁSCARAS           *");
+			System.out.println("    *                1- FINANCEIRO                     *");
+			System.out.println("    *                2- MANTER CLIENTE                 *");
+			System.out.println("    *                3- MANTER FUNCIONARIO             *");
+			System.out.println("    *                4- MATERIAIS                      *");
+			System.out.println("    *                5- PRODUÇÃO DE MÁSCARAS           *");
 			System.out.println("    *                5- CONSULTA                       *");
 			System.out.println("    ****************************************************\n\n");
 			
@@ -72,7 +81,16 @@ public class ProgramaPrincipal {
             switch (respostaMenu) //Decisão do menu
             {
             
-                case 1: //Decisão
+            	case 1:
+            	
+            		System.out.println("\n\n    =============================");
+                	System.out.println("    ******** FINANCEIRO *******");
+                	System.out.println("    ===========================\n\n\n");
+            		
+            		
+            		break;
+            
+                case 2: //Decisão
                 	
                 	System.out.println("\n\n    ==================================");
                 	System.out.println("    ******** CADASTRAR CLIENTE *******");
@@ -156,7 +174,7 @@ public class ProgramaPrincipal {
                 	
                 	break;
                 	
-                case 2:
+                case 3:
                 	
                 	
                 	System.out.println("\n\n    ======================================");
@@ -237,7 +255,7 @@ public class ProgramaPrincipal {
                 	
                 	break;
                 	
-                case 3:
+                case 4:
                 	
                 	do 
                 	{
@@ -360,10 +378,10 @@ public class ProgramaPrincipal {
 	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoClipNasal()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdClipNasalComprada = scan.nextInt();
-	                		materiais.setQtdClipNasal(qtdClipNasalComprada);
+	                		materiais.setQtdClipNasalComprada(qtdClipNasalComprada);
 	                		
 	                		if (qtdClipNasalComprada > 0) {
-	                		somaClipNasal =qtdClipNasalComprada + materiais.getQtdClipNasal();
+	                		somaClipNasal = qtdClipNasalComprada + materiais.getQtdClipNasal();
 	                		}
 	                		
 							break;
@@ -375,10 +393,10 @@ public class ProgramaPrincipal {
 	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaElastico()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaElásticoComprada = scan.nextInt();
-	                		materiais.setQtdCaixaElástico(qtdCaixaElásticoComprada);
+	                		materiais.setQtdCaixaElásticoComprada(qtdCaixaElásticoComprada);
 							
 	                		if (qtdCaixaElásticoComprada > 0) {
-	                		somaCaixaElástico = qtdCaixaElásticoComprada + materiais.getQtdCaixaElástico();
+	                		somaCaixaElastico = qtdCaixaElásticoComprada + materiais.getQtdCaixaElástico();
 	                		}
 	                		
 							break;
@@ -390,7 +408,7 @@ public class ProgramaPrincipal {
 	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaUnidade()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaUnidadeComprada = scan.nextInt();
-	                		materiais.setQtdCaixaUnidade(qtdCaixaUnidadeComprada);
+	                		materiais.setQtdCaixaUnidadeComprada(qtdCaixaUnidadeComprada);
 	                		
 	                		if (qtdCaixaUnidadeComprada > 0) {
 	                		somaCaixaUnidade = qtdCaixaUnidadeComprada + materiais.getQtdCaixaUnidade();
@@ -405,7 +423,7 @@ public class ProgramaPrincipal {
 	                		System.out.println("    Preço: R$"+ fornecedor.getPrecoCaixaMaster()+"0");
 	                		System.out.print("    Quantidade: ");
 	                		int qtdCaixaMasterComprada = scan.nextInt();
-	                		materiais.setQtdCaixaMaster(qtdCaixaMasterComprada);
+	                		materiais.setQtdCaixaMasterComprada(qtdCaixaMasterComprada);
 	                		
 	                		if (qtdCaixaMasterComprada > 0) {
 	                		somaCaixaMaster = qtdCaixaMasterComprada + materiais.getQtdCaixaMaster();
@@ -426,15 +444,21 @@ public class ProgramaPrincipal {
                     	System.out.println("    ******** ATUALIZAR ESTOQUE *******");
                     	System.out.println("    =====================================\n\n");
                 		
-                    	if (somaTNT > 0) { //Ocorreu uma atualização no estoque
+                    	//Material TNT
+                    	if (somaTNT > 0 && subtracaoTNT == 0) { //Ocorreu uma atualização no estoque - soma
                     		System.out.println("    Nome: TNT (6 unidade)");
                     		System.out.println("    Codigo: "+ materiais.getTNT());
                     		System.out.println("    Quantidade: "+ somaTNT);
                     	}
-                    	else if (subtracaoTNT > 0 && somaTNT == 0) {
+                    	else if (subtracaoTNT > 0 && somaTNT == 0) { //Ocorreu uma atualização no estoque - subtração
                     		System.out.println("    Nome: TNT (6 unidade)");
                     		System.out.println("    Codigo: "+ materiais.getTNT());
                     		System.out.println("    Quantidade: "+ subtracaoTNT);
+                    	}
+                    	else if (somaTNT > 0 && subtracaoTNT > 0) { //Ocorreu uma atualização no estoque - soma
+                    		System.out.println("    Nome: TNT (6 unidade)");
+                    		System.out.println("    Codigo: "+ materiais.getTNT());
+                    		System.out.println("    Quantidade: "+ (somaTNT-subtracaoTNT));
                     	}
                     	else { //Não ocorreu atualização no estoque
                 		System.out.println("    Nome: TNT (6 unidade)");
@@ -442,10 +466,23 @@ public class ProgramaPrincipal {
                 		System.out.println("    Quantidade: "+ materiais.getQtdTNT());
                     	}
                 		
-                		if (somaSMS > 0){ //Ocorreu uma atualização no estoque
+                    	
+                    	
+                    	//Material SMS
+                		if (somaSMS > 0 && subtracaoSMS == 0){ //Ocorreu uma atualização no estoque
                 			System.out.println("\n    Nome: SMS (6 unidades)");
                     		System.out.println("    Codigo: "+ materiais.getSMS());
                     		System.out.println("    Quantidade: "+ somaSMS);
+                		}
+                		else if (subtracaoSMS > 0 && somaSMS == 0) {
+                			System.out.println("\n    Nome: SMS (6 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getSMS());
+                    		System.out.println("    Quantidade: "+ subtracaoSMS);
+                		}
+                		else if (subtracaoSMS > 0 && somaSMS > 0) {
+                			System.out.println("\n    Nome: SMS (6 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getSMS());
+                    		System.out.println("    Quantidade: "+ (somaSMS-subtracaoSMS));
                 		}
                 		else { //Não ocorreu atualização no estoque
                 		System.out.println("\n    Nome: SMS (6 unidades)");
@@ -453,10 +490,23 @@ public class ProgramaPrincipal {
                 		System.out.println("    Quantidade: "+ materiais.getQtdSMS());
                 		}
                 		
-                		if (somaClipNasal > 0) { //Ocorreu uma atualização no estoque
+                		
+                		
+                		//Material Clip Nasal
+                		if (somaClipNasal > 0 && subtracaoClipNasal == 0) { //Ocorreu uma atualização no estoque
                 			System.out.println("\n    Nome: Clip Nasal (6 unidades)");
                     		System.out.println("    Codigo: "+ materiais.getClipNasal());
                     		System.out.println("    Quantidade: "+ somaClipNasal);
+                		}
+                		else if (subtracaoClipNasal > 0 && somaClipNasal == 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Clip Nasal (6 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getClipNasal());
+                    		System.out.println("    Quantidade: "+ subtracaoClipNasal);
+                		}
+                		else if (somaClipNasal > 0 && subtracaoClipNasal > 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Clip Nasal (6 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getClipNasal());
+                    		System.out.println("    Quantidade: "+ (somaClipNasal-subtracaoClipNasal));
                 		}
                 		else { //Não ocorreu atualização no estoque
                 		System.out.println("\n    Nome: Clip Nasal (6 unidades)");
@@ -464,10 +514,23 @@ public class ProgramaPrincipal {
                 		System.out.println("    Quantidade: "+ materiais.getQtdClipNasal());
                 		}
                 		
-                		if (somaCaixaElástico > 0) { //Ocorreu uma atualização no estoque
+                		
+                		
+                		//Material Caixa de Elástico
+                		if (somaCaixaElastico > 0 && subtracaoCaixaElastico == 0) { //Ocorreu uma atualização no estoque
                 			System.out.println("\n    Nome: Caixa de elástico (1 unidade)");
                     		System.out.println("    Codigo: "+ materiais.getCaixaElástico());
-                    		System.out.println("    Quantidade: "+ somaCaixaElástico);
+                    		System.out.println("    Quantidade: "+ somaCaixaElastico);
+                		}
+                		else if (subtracaoCaixaElastico > 0 && somaCaixaElastico == 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa de elástico (1 unidade)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaElástico());
+                    		System.out.println("    Quantidade: "+ subtracaoCaixaElastico);
+                		}
+                		else if (somaCaixaElastico > 0 && subtracaoCaixaElastico > 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa de elástico (1 unidade)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaElástico());
+                    		System.out.println("    Quantidade: "+ (somaCaixaElastico-subtracaoCaixaElastico));
                 		}
                 		else { //Não ocorreu atualização no estoque
                 		System.out.println("\n    Nome: Caixa de elástico (1 unidade)");
@@ -475,10 +538,23 @@ public class ProgramaPrincipal {
                 		System.out.println("    Quantidade: "+ materiais.getQtdCaixaElástico());
                 		}
                 		
-                		if (somaCaixaUnidade > 0) { //Ocorreu uma atualização no estoque
+                		
+                		
+                		//Material Caixa 50 unidades
+                		if (somaCaixaUnidade > 0 && subtracaoCaixaUnidade == 0) { //Ocorreu uma atualização no estoque
                 			System.out.println("\n    Nome: Caixa 50 unidades de mascaras (200 unidades)");
                     		System.out.println("    Codigo: "+ materiais.getCaixaUnidade());
                     		System.out.println("    Quantidade: "+ somaCaixaUnidade);
+                		}
+                		else if (subtracaoCaixaUnidade > 0 && somaCaixaUnidade == 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa 50 unidades de mascaras (200 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaUnidade());
+                    		System.out.println("    Quantidade: "+ subtracaoCaixaUnidade);
+                		}
+                		else if (somaCaixaUnidade > 0 && subtracaoCaixaUnidade > 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa 50 unidades de mascaras (200 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaUnidade());
+                    		System.out.println("    Quantidade: "+ (somaCaixaUnidade-subtracaoCaixaUnidade));
                 		}
                 		else { //Não ocorreu atualização no estoque
                 		System.out.println("\n    Nome: Caixa 50 unidades de mascaras (200 unidades)");
@@ -486,10 +562,23 @@ public class ProgramaPrincipal {
                 		System.out.println("    Quantidade: "+ materiais.getQtdCaixaUnidade());
                 		}
                 		
-                		if (somaCaixaMaster > 0) { //Ocorreu uma atualização no estoque
+                		
+                		
+                		//Material Caixa Master
+                		if (somaCaixaMaster > 0 && subtracaoCaixaMaster == 0) { //Ocorreu uma atualização no estoque
                 			System.out.println("\n    Nome: Caixa Master (10 unidades)");
                     		System.out.println("    Codigo: "+ materiais.getCaixaMaster());
                     		System.out.println("    Quantidade: "+ somaCaixaMaster);
+                		}
+                		else if (subtracaoCaixaMaster > 0 && somaCaixaMaster == 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa Master (10 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaMaster());
+                    		System.out.println("    Quantidade: "+ subtracaoCaixaMaster);
+                		}
+                		else if (somaCaixaMaster > 0 && subtracaoCaixaMaster > 0) { //Ocorreu uma atualização no estoque
+                			System.out.println("\n    Nome: Caixa Master (10 unidades)");
+                    		System.out.println("    Codigo: "+ materiais.getCaixaMaster());
+                    		System.out.println("    Quantidade: "+ (somaCaixaMaster-subtracaoCaixaMaster));
                 		}
                 		else { //Não ocorreu atualização no estoque
                 		System.out.println("\n    Nome: Caixa Master (10 unidades)");
@@ -509,8 +598,11 @@ public class ProgramaPrincipal {
 					while(subMenu == 1);
 					
                 	
-                case 4:
+                case 5:
             		
+                	do
+                	{
+                	
             		System.out.println("\n\n    =====================================");
                 	System.out.println("    ******** PRODUÇÃO DE MÁSCARAS *******");
                 	System.out.println("    =====================================\n\n");
@@ -532,7 +624,7 @@ public class ProgramaPrincipal {
                     	
                     	
                     	System.out.print("Quantidade de Máscaras em estoque (Caixa Master): ");
-                    	int estoqueMascaras = scan.nextInt();
+                    	estoqueMascaras = scan.nextInt();
                     	materiais.setEstoqueMascaras(estoqueMascaras);
 						
 						break;
@@ -544,8 +636,10 @@ public class ProgramaPrincipal {
 	                	System.out.println("    =====================================\n\n");
 	                	
 	                	System.out.print("    Caixa Master produzida: ");
-	                	int estoqueCaixaMaster = scan.nextInt();
-	                	relatorio.setEstoqueCaixaMaster(estoqueCaixaMaster);
+	                	estoqueCaixaMaster = scan.nextInt();
+	                	if (estoqueCaixaMaster > 0) {
+	                		somaProducao = estoqueCaixaMaster + materiais.getEstoqueMascaras();
+	                	}
 	                	
 	                	System.out.print("\n    Materiais utilizados na produção.");
 	                	
@@ -565,30 +659,85 @@ public class ProgramaPrincipal {
 	                	int utilizadaSMS = scan.nextInt();
 	                	relatorio.setMaterialUtilizadoSMS(utilizadaSMS);
 	                	
-	                	
+	                	if (somaSMS > 0) {
+	                		somaSMS = somaSMS - utilizadaSMS;
+	                	}
+	                	else {
+	                		subtracaoSMS = materiais.getQtdSMS() - utilizadaSMS;
+	                	}
 	                	
 	                	
 	                	System.out.print("    Clip Nasal (6 unidade): ");
 	                	int utilizadaClipNasal = scan.nextInt();
 	                	relatorio.setMaterialUtilizadoClipNasal(utilizadaClipNasal);
 	                	
+	                	if (somaClipNasal > 0) {
+	                		somaClipNasal = somaClipNasal - utilizadaClipNasal;
+	                	}
+	                	else {
+	                		subtracaoClipNasal = materiais.getQtdClipNasal() - utilizadaClipNasal;
+	                	}
+	                	
+	                	
 	                	System.out.print("    Caixa de elástico (1 unidade): ");
 	                	int utilizadaCaixaElastico = scan.nextInt();
 	                	relatorio.setMaterialUtilizadoCaixaElastico(utilizadaCaixaElastico);
+	                	
+	                	if (somaCaixaElastico > 0) {
+	                		somaCaixaElastico = somaCaixaElastico - utilizadaCaixaElastico;
+	                	}
+	                	else {
+	                		subtracaoCaixaElastico = materiais.getQtdCaixaElástico() - utilizadaCaixaElastico;
+	                	}
+	                	
+	                	
 	                	
 	                	System.out.print("    Caixa 50 unidades de mascaras (200 unidades): ");
 	                	int utilizadaCaixaUnidade = scan.nextInt();
 	                	relatorio.setMaterialUtilizadoCaixaUnidade(utilizadaCaixaUnidade);
 	                	
+	                	if (somaCaixaUnidade > 0) {
+	                		somaCaixaUnidade = somaCaixaUnidade - utilizadaCaixaUnidade;
+	                	}
+	                	else {
+	                		subtracaoCaixaUnidade = materiais.getQtdCaixaUnidade() - utilizadaCaixaUnidade;
+	                	}
+	                	
+	                	
+	                	
 	                	System.out.print("    Caixa Master (10 unidades): ");
 	                	int utilizadaCaixaMaster = scan.nextInt();
 	                	relatorio.setMaterialUtilizadoCaixaMaster(utilizadaCaixaMaster);
+	                	
+	                	if (somaCaixaMaster > 0) {
+	                		somaCaixaMaster = somaCaixaMaster - utilizadaCaixaMaster;
+	                	}
+	                	else {
+	                		subtracaoCaixaMaster = materiais.getQtdCaixaMaster() - utilizadaCaixaMaster;
+	                	}
+	                	
+	                	
 						
 						break;
 						
 						
 					case 3:
 						
+						System.out.println("\n\n    ==============================================");
+                    	System.out.println("    ******** ATUALIZAR ESTOQUE DE MASCARAS *******");
+                    	System.out.println("    ==============================================\n\n");
+						
+                    	if (estoqueCaixaMaster > 0) {
+	                		System.out.println("    Total de Caixa Master em Estoque: "+ somaProducao);
+	                		System.out.println("    Total de Caixas 50 unidades em Estoque: "+ (somaProducao*72));
+	                		System.out.println("    Total de Mascaras em Estoque: "+ (somaProducao*3600));
+                    	}
+                    	else {
+	                		System.out.println("    Total de Caixa Master em Estoque: "+ materiais.getEstoqueMascaras());
+	                		System.out.println("    Total de Caixas 50 unidades em Estoque: "+ (materiais.getEstoqueMascaras()*72));
+	                		System.out.println("    Total de Mascaras em Estoque: "+ (materiais.getEstoqueMascaras()*3600));
+                    	}
+                    	
 						
 						
 						break;
@@ -597,7 +746,10 @@ public class ProgramaPrincipal {
 					}
                 	
                 	
-                	
+                	System.out.print("\n\n  Digite '1' para voltar ao Menu de Produção ou '2' para sair: ");
+					subMenu2 = scan.nextInt();
+                	}	
+					while(subMenu2 == 1);
                 	
                 	
             }
