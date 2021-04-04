@@ -4,6 +4,7 @@ public class Funcionario extends Pessoa {
 	
 	private int IdFuncionario;
 	private String Cargo;
+	private double Salario = 1045;
 	
 	public int getIdFuncionario() {
 		return IdFuncionario;
@@ -102,6 +103,9 @@ public class Funcionario extends Pessoa {
 				"\nCidade: "+ Cidade +
 				"\nEstado: "+ Estado;
 				
+	}
+	public double getSalario() {
+		return Salario;
 	}
 	
 }

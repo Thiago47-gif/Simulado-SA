@@ -11,11 +11,15 @@ public class ProgramaPrincipal {
 		
 		Scanner scan = new Scanner(System.in);//Ler o teclado
 		
-		int contCliente = 0; //Contador de Clientes cadastrados
+		int contFuncionario = 0; //Contador de Clientes cadastrados
+		
+		int contVendas = 0; //Contador de vendas
 		
 		int menu;//Opção de repetição do ciclo
 		int subMenu;
 		int subMenu2;
+		int subMenuFinanceiro;
+		
 		
 		int i = 0; //Índece
 		
@@ -29,6 +33,7 @@ public class ProgramaPrincipal {
 		Estoque materiais = new Estoque();
 		Fornecedor fornecedor = new Fornecedor();
 		RelatorioProducao relatorio = new RelatorioProducao();
+		Vendas vendas = new Vendas();
 		
 		
 		int idCliente = 0;
@@ -59,21 +64,24 @@ public class ProgramaPrincipal {
 		//Soma produção com o estoque
 		int somaProducao = 0;
 		
+		//Vendas
+		double valorVenda = 0;
+		double valorVenda2 = 0;
 		
 		
 		do //Inicializando Ciclo de repetição
         {
 			
-			System.out.println("\n\n\n    ****************************************************");
-			System.out.println("    *                   MENU PRINCIPAL                 *");
-			System.out.println("    *                                                  *");
-			System.out.println("    *                1- FINANCEIRO                     *");
-			System.out.println("    *                2- MANTER CLIENTE                 *");
-			System.out.println("    *                3- MANTER FUNCIONARIO             *");
-			System.out.println("    *                4- MATERIAIS                      *");
-			System.out.println("    *                5- PRODUÇÃO DE MÁSCARAS           *");
-			System.out.println("    *                5- CONSULTA                       *");
-			System.out.println("    ****************************************************\n\n");
+			System.out.println("\n\n\n    *****************************************************");
+			System.out.println("    *                   MENU PRINCIPAL                  *");
+			System.out.println("    *                                                   *");
+			System.out.println("    *                1 - MANTER CLIENTE                 *");
+			System.out.println("    *                2 - MANTER FUNCIONARIO             *");
+			System.out.println("    *                3 - MATERIAIS                      *");
+			System.out.println("    *                4 - PRODUÇÃO DE MÁSCARAS           *");
+			System.out.println("    *                5 - VENDAS                         *");
+			System.out.println("    *                6 - FINANCEIRO                     *");
+			System.out.println("    *****************************************************\n\n");
 			
 			System.out.print("    Digite a opção desejada no menu:  ");
             int respostaMenu = scan.nextInt(); //Opção do menu
@@ -81,16 +89,9 @@ public class ProgramaPrincipal {
             switch (respostaMenu) //Decisão do menu
             {
             
-            	case 1:
             	
-            		System.out.println("\n\n    =============================");
-                	System.out.println("    ******** FINANCEIRO *******");
-                	System.out.println("    ===========================\n\n\n");
-            		
-            		
-            		break;
             
-                case 2: //Decisão
+                case 1: //Decisão
                 	
                 	System.out.println("\n\n    ==================================");
                 	System.out.println("    ******** CADASTRAR CLIENTE *******");
@@ -100,6 +101,8 @@ public class ProgramaPrincipal {
                 	
                 	
                 	for (i=0; i<99999; i++) {
+                		
+                		
                 		
                 		idCliente = i;
 						System.out.println("\n\n    ID: " + idCliente +"\n");
@@ -164,17 +167,10 @@ public class ProgramaPrincipal {
                 	}
 			
                 	
-                	for (Cliente c : listCliente) {
-                		System.out.println(c);
-                	}
-                	
-                	
-                	
-                
                 	
                 	break;
                 	
-                case 3:
+                case 2:
                 	
                 	
                 	System.out.println("\n\n    ======================================");
@@ -185,6 +181,8 @@ public class ProgramaPrincipal {
                 	
                 	
                 	for (i=0; i<99999; i++) {
+                		
+                		++contFuncionario;//Conta quantos funcionarios existem na empresa
                 		
                 		idFuncionario = i;
 						System.out.println("\n\n    ID: " + idFuncionario +"\n");
@@ -201,6 +199,8 @@ public class ProgramaPrincipal {
 						System.out.print("\n    Cargo: ");
 						String cargo = scan.next();
 						funcionarioCadastro.setCargo(cargo);
+						
+						System.out.print("\n    Salário: "+ funcionarioCadastro.getSalario());
 						
 						System.out.print("\n    Idade: ");
 						int idade = scan.nextInt();
@@ -255,7 +255,9 @@ public class ProgramaPrincipal {
                 	
                 	break;
                 	
-                case 4:
+                	
+                	
+                case 3:
                 	
                 	do 
                 	{
@@ -596,9 +598,11 @@ public class ProgramaPrincipal {
 					subMenu = scan.nextInt();
                 	}	
 					while(subMenu == 1);
+                	
+                	break;
 					
                 	
-                case 5:
+                case 4:
             		
                 	do
                 	{
@@ -751,9 +755,110 @@ public class ProgramaPrincipal {
                 	}	
 					while(subMenu2 == 1);
                 	
+                	break;
+                	
+                	
+                case 5:
+                	
+                	System.out.println("\n\n    =========================");
+                	System.out.println("    ******** VENDAS *******");
+                	System.out.println("    =======================\n\n\n");
+                	
+                	for (i=0; i<99999; i++) {
+                		
+                		++contVendas;//Contador de vendas
+                	
+                		if (estoqueCaixaMaster > 0) {
+                			System.out.println("    Total de Caixa Master em Estoque: "+ somaProducao);
+                		}
+                		else {
+                			System.out.println("    Total de Caixa Master em Estoque: "+ materiais.getEstoqueMascaras());
+                		}
+                	
+                		System.out.println("    Valor de cada Caixa Master: "+ vendas.getValorCaixaMaster());
+                		System.out.print("    Quantidade de Caixa Master vendidas: ");
+                		int caixasVendidas = scan.nextInt();
+                		vendas.setCaixasVendidas(caixasVendidas);
+                	
+                		valorVenda = caixasVendidas * vendas.getValorCaixaMaster();
+                		vendas.setVenda(valorVenda);
+                	
+                		valorVenda2 = valorVenda2 + valorVenda;//Somando vendas
+                		
+                		
+            		
+                		System.out.println("\n\n    Deseja fazer mais uma venda ? ");
+                		System.out.println("    Opção 1 - sim");
+                		System.out.println("    Opção 2 - não");
+                		System.out.print("\nOpção: ");
+                		int repita = scan.nextInt();
+                		
+                		if (repita == 2) {
+                			break; //Fim da estrutura de repetição
+                		}
+                	}	
+                	
+                	
+                	
+                	
+                case 6:
+            		do
+            		{
+            		System.out.println("\n\n    =============================");
+                	System.out.println("    ******** FINANCEIRO *******");
+                	System.out.println("    ===========================\n\n\n");
+            		
+                	System.out.println("    1 - Declarar Saldo.");
+                	System.out.println("    2 - Despesas.");
+                	System.out.println("    3 - Lucro de vendas.");
+                	System.out.println("    4 - Atualizar Saldo.\n");
+                	System.out.print("    Opcão:");
+                	int opcao = scan.nextInt();
+                	
+                	switch (opcao) {
+                	
+					case 1:
+						
+						System.out.println("\n\n    ==========================================");
+	                	System.out.println("    ******** DECLARAR SALDO DA EMPRESA *******");
+	                	System.out.println("    ==========================================\n\n");
+						
+	                	
+	                	
+	                	
+	                	
+						break;
+						
+						
+					}
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	
+                	System.out.print("\n\n  Digite '1' para voltar ao Menu do Financeiro ou '2' para sair: ");
+					subMenuFinanceiro = scan.nextInt();
+                	}	
+					while(subMenuFinanceiro == 1);
+                	
+            		
+            		break;
+                	
+                	
+                	
+                	
                 	
             }
-			System.out.print("\n\n  Digite '1' para voltar ao menu ou '2' para sair do programa: ");
+			System.out.print("\n\n  Digite '1' para voltar ao Menu Principal ou '2' para sair do programa: ");
             menu = scan.nextInt(); //Voltar ciclo de repetição do menu (do while)
         }
         while (menu == 1); //Voltar ciclo de repetição
