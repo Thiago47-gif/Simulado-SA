@@ -2,7 +2,7 @@ package FabricaDeMascaras;
 
 public class Vendas {
 	
-	private double ValorCaixaMaster = 4312.8;
+	private double ValorCaixaMaster = 1800;
 	private int CaixasVendidas;
 	private double Venda;
 

@@ -12,8 +12,9 @@ public class ProgramaPrincipal {
 		Scanner scan = new Scanner(System.in);//Ler o teclado
 		
 		int contFuncionario = 0; //Contador de Clientes cadastrados
-		
 		int contVendas = 0; //Contador de vendas
+		int contCaixasVendidas = 0; //Contador de caixas vendidas
+		
 		
 		int menu;//Opção de repetição do ciclo
 		int subMenu;
@@ -34,6 +35,7 @@ public class ProgramaPrincipal {
 		Fornecedor fornecedor = new Fornecedor();
 		RelatorioProducao relatorio = new RelatorioProducao();
 		Vendas vendas = new Vendas();
+		Financeiro financeiro = new Financeiro();
 		
 		
 		int idCliente = 0;
@@ -67,6 +69,14 @@ public class ProgramaPrincipal {
 		//Vendas
 		double valorVenda = 0;
 		double valorVenda2 = 0;
+		
+		//Despesas
+		double despesaFuncionario = 0;
+		double somaValorMateriais = 0;
+		double somaDespesasEmpresa = 0;
+		
+		//Atualizar saldo
+		double saltoAtualizado = 0;
 		
 		
 		do //Inicializando Ciclo de repetição
@@ -244,7 +254,7 @@ public class ProgramaPrincipal {
                 		System.out.println("\n\n    Deseja cadastrar mais Funcionarios ? ");
                 		System.out.println("    Opção 1 - sim");
                 		System.out.println("    Opção 2 - não");
-                		System.out.print("\nOpção: ");
+                		System.out.print("\n    Opção: ");
                 		int repita = scan.nextInt();
                 		
                 		if (repita == 2) {
@@ -352,8 +362,11 @@ public class ProgramaPrincipal {
 	                		int qtdTNTComprada = scan.nextInt();
 	                		materiais.setQtdTNTComprada(qtdTNTComprada);
 	                		
+	                		
+	                		
 	                		if (qtdTNTComprada > 0) {
 	                		somaTNT = qtdTNTComprada + materiais.getQtdTNT();
+	                		somaValorMateriais = somaValorMateriais + (qtdTNTComprada * fornecedor.getPrecoTNT());
 	                		}
 	                		
 	                		break;
@@ -369,6 +382,7 @@ public class ProgramaPrincipal {
 	                		
 	                		if (qtdSMSComprada > 0) {
 	                		somaSMS = qtdSMSComprada + materiais.getQtdSMS();
+	                		somaValorMateriais = somaValorMateriais + (qtdSMSComprada * fornecedor.getPrecoSMS());
 	                		}
 	                		
 	                		break;
@@ -384,6 +398,7 @@ public class ProgramaPrincipal {
 	                		
 	                		if (qtdClipNasalComprada > 0) {
 	                		somaClipNasal = qtdClipNasalComprada + materiais.getQtdClipNasal();
+	                		somaValorMateriais = somaValorMateriais + (qtdClipNasalComprada * fornecedor.getPrecoClipNasal());
 	                		}
 	                		
 							break;
@@ -399,6 +414,7 @@ public class ProgramaPrincipal {
 							
 	                		if (qtdCaixaElásticoComprada > 0) {
 	                		somaCaixaElastico = qtdCaixaElásticoComprada + materiais.getQtdCaixaElástico();
+	                		somaValorMateriais = somaValorMateriais + (qtdCaixaElásticoComprada * fornecedor.getPrecoCaixaElastico());
 	                		}
 	                		
 							break;
@@ -414,6 +430,7 @@ public class ProgramaPrincipal {
 	                		
 	                		if (qtdCaixaUnidadeComprada > 0) {
 	                		somaCaixaUnidade = qtdCaixaUnidadeComprada + materiais.getQtdCaixaUnidade();
+	                		somaValorMateriais = somaValorMateriais + (qtdCaixaUnidadeComprada * fornecedor.getPrecoCaixaUnidade());
 	                		}
 	                		
 							break;
@@ -429,6 +446,7 @@ public class ProgramaPrincipal {
 	                		
 	                		if (qtdCaixaMasterComprada > 0) {
 	                		somaCaixaMaster = qtdCaixaMasterComprada + materiais.getQtdCaixaMaster();
+	                		somaValorMateriais = somaValorMateriais + (qtdCaixaMasterComprada * fornecedor.getPrecoCaixaMaster());
 	                		}
 	                		
 							break;
@@ -594,7 +612,7 @@ public class ProgramaPrincipal {
                 	
                 	
                 	
-                	System.out.print("\n\n  Digite '1' para voltar ao Menu de Materiais ou '2' para sair: ");
+                	System.out.print("\n\n    Digite '1' para voltar ao Menu de Materiais ou '2' para sair: ");
 					subMenu = scan.nextInt();
                 	}	
 					while(subMenu == 1);
@@ -779,6 +797,8 @@ public class ProgramaPrincipal {
                 		System.out.print("    Quantidade de Caixa Master vendidas: ");
                 		int caixasVendidas = scan.nextInt();
                 		vendas.setCaixasVendidas(caixasVendidas);
+                		
+                		contCaixasVendidas = contCaixasVendidas + caixasVendidas;
                 	
                 		valorVenda = caixasVendidas * vendas.getValorCaixaMaster();
                 		vendas.setVenda(valorVenda);
@@ -798,7 +818,7 @@ public class ProgramaPrincipal {
                 		}
                 	}	
                 	
-                	
+                break;	
                 	
                 	
                 case 6:
@@ -823,25 +843,60 @@ public class ProgramaPrincipal {
 	                	System.out.println("    ******** DECLARAR SALDO DA EMPRESA *******");
 	                	System.out.println("    ==========================================\n\n");
 						
-	                	
-	                	
+	                	System.out.print("    Saldo da empresa: ");
+	                	double saldo = scan.nextDouble();
+	                	financeiro.setSaldo(saldo);
 	                	
 	                	
 						break;
 						
+					case 2:
+						
+						System.out.println("\n\n    ====================================");
+	                	System.out.println("    ******** DESPESAS DA EMPRESA *******");
+	                	System.out.println("    ====================================\n\n");
+	                	
+	                	//Total do salario de todos os funcionarios
+	                	despesaFuncionario = contFuncionario * funcionarioCadastro.getSalario();
+	                	System.out.println("    Existem "+ contFuncionario +" funcionarios na empresa.");
+	                	System.out.println("    Salario dos funcionarios: R$"+ despesaFuncionario);
+	                	System.out.println("    Compra de materiais: R$"+ somaValorMateriais);
+	                	
+	                	somaDespesasEmpresa = somaDespesasEmpresa + (despesaFuncionario + somaValorMateriais);
+	                	
+	                	System.out.println("    Soma de despesas: "+ somaDespesasEmpresa);
+	                	
+	                	saltoAtualizado = saltoAtualizado + (financeiro.getSaldo() - somaDespesasEmpresa);
+						
+						break;
+						
+					case 3:
+						
+						System.out.println("\n\n    ================================");
+	                	System.out.println("    ******** LUCRO DE VENDAS *******");
+	                	System.out.println("    ================================\n\n");
+	                	
+	                	System.out.println("    Vendas realizadas: "+ contVendas);
+	                	System.out.println("    Caixa Master vendida: "+ contCaixasVendidas);
+	                	System.out.println("    Lucrode vendas: "+ valorVenda2);
+	                	
+						break;
+						
+					case 4:
+						
+						System.out.println("\n\n    ===============================");
+	                	System.out.println("    ******** ATUALIZAR SALDO *******");
+	                	System.out.println("    ===============================\n\n");
+	                	
+	                	System.out.println("    Saldo Atualizado: "+ saltoAtualizado);
+						
+						
+						break;
+						
+					
+						
 						
 					}
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
-                	
                 	
                 	
                 	
