@@ -17,6 +17,9 @@ public class Estoque extends Materiais {
 	private int QtdCaixaUnidadeComprada;
 	private int QtdCaixaMasterComprada;
 	
+	private int EstoqueMascaras;
+	protected int EstoqueCaixaMaster;
+	
 	//Método Get e Set
 	public int getQtdTNT() {
 		return QtdTNT;
@@ -170,6 +173,26 @@ public class Estoque extends Materiais {
 
 	public void setQtdCaixaMasterComprada(int qtdCaixaMasterComprada) {
 		QtdCaixaMasterComprada = qtdCaixaMasterComprada;
+	}
+
+
+	public int getEstoqueMascaras() {
+		return EstoqueMascaras;
+	}
+
+
+	public void setEstoqueMascaras(int estoqueMascaras) {
+		EstoqueMascaras = estoqueMascaras;
+	}
+
+
+	public int getEstoqueCaixaMaster() {
+		return EstoqueCaixaMaster;
+	}
+
+
+	public void setEstoqueCaixaMaster(int estoqueCaixaMaster) {
+		EstoqueCaixaMaster = estoqueCaixaMaster;
 	}
 	
 

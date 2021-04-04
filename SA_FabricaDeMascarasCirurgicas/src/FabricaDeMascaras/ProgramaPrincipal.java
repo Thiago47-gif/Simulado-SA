@@ -3,6 +3,8 @@ package FabricaDeMascaras;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class ProgramaPrincipal {
 
 	public static void main(String[] args) {
@@ -25,6 +27,7 @@ public class ProgramaPrincipal {
 		Funcionario funcionarioCadastro = new Funcionario();
 		Estoque materiais = new Estoque();
 		Fornecedor fornecedor = new Fornecedor();
+		RelatorioProducao relatorio = new RelatorioProducao();
 		
 		
 		int idCliente = 0;
@@ -40,6 +43,13 @@ public class ProgramaPrincipal {
 		int somaCaixaUnidade = 0;
 		int somaCaixaMaster = 0;
 		
+		//Subtração materiais no estoque
+		int subtracaoTNT = 0;
+		int subtracaoSMS = 0;
+		int subtracaoClipNasal = 0;
+		int subtracaoCaixaElástico = 0;
+		int subtracaoCaixaUnidade = 0;
+		int subtracaoCaixaMaster = 0;
 		
 		
 		
@@ -52,7 +62,7 @@ public class ProgramaPrincipal {
 			System.out.println("    *                1- MANTER CLIENTE                 *");
 			System.out.println("    *                2- MANTER FUNCIONARIO             *");
 			System.out.println("    *                3- MATERIAIS                      *");
-			System.out.println("    *                4- RECEITAS CADASTRADAS           *");
+			System.out.println("    *                4- PRODUÇÃO DE MÁSCARAS           *");
 			System.out.println("    *                5- CONSULTA                       *");
 			System.out.println("    ****************************************************\n\n");
 			
@@ -420,7 +430,11 @@ public class ProgramaPrincipal {
                     		System.out.println("    Nome: TNT (6 unidade)");
                     		System.out.println("    Codigo: "+ materiais.getTNT());
                     		System.out.println("    Quantidade: "+ somaTNT);
-                    		System.out.println(materiais.getQtdSMS());
+                    	}
+                    	else if (subtracaoTNT > 0 && somaTNT == 0) {
+                    		System.out.println("    Nome: TNT (6 unidade)");
+                    		System.out.println("    Codigo: "+ materiais.getTNT());
+                    		System.out.println("    Quantidade: "+ subtracaoTNT);
                     	}
                     	else { //Não ocorreu atualização no estoque
                 		System.out.println("    Nome: TNT (6 unidade)");
@@ -484,10 +498,10 @@ public class ProgramaPrincipal {
                 		}
                 		
                     	break;
-                		
-                		
-                    	
+                	
                 	}
+                	
+                	
                 	
                 	System.out.print("\n\n  Digite '1' para voltar ao Menu de Materiais ou '2' para sair: ");
 					subMenu = scan.nextInt();
@@ -495,7 +509,92 @@ public class ProgramaPrincipal {
 					while(subMenu == 1);
 					
                 	
+                case 4:
+            		
+            		System.out.println("\n\n    =====================================");
+                	System.out.println("    ******** PRODUÇÃO DE MÁSCARAS *******");
+                	System.out.println("    =====================================\n\n");
                 	
+                	
+                	System.out.println("    1 - Estoque de Máscaras.");
+                	System.out.println("    2 - Produção do dia.");
+                	System.out.println("    3 - Atualizar estoque de Máscaras.\n");
+                	System.out.print("    Opcão:");
+                	int opcaoMascaras = scan.nextInt();
+                	
+                	switch (opcaoMascaras) {
+                	
+					case 1:
+						
+						System.out.println("\n\n    ==============================================================");
+                    	System.out.println("    ******** DECLARAR A QUANTIDADE DE MÁTERIAIS EM ESTOQUE *******");
+                    	System.out.println("    ==============================================================\n\n");
+                    	
+                    	
+                    	System.out.print("Quantidade de Máscaras em estoque (Caixa Master): ");
+                    	int estoqueMascaras = scan.nextInt();
+                    	materiais.setEstoqueMascaras(estoqueMascaras);
+						
+						break;
+						
+					case 2:
+						
+						System.out.println("\n\n    =====================================");
+	                	System.out.println("    ******** PRODUÇÃO DE MÁSCARAS *******");
+	                	System.out.println("    =====================================\n\n");
+	                	
+	                	System.out.print("    Caixa Master produzida: ");
+	                	int estoqueCaixaMaster = scan.nextInt();
+	                	relatorio.setEstoqueCaixaMaster(estoqueCaixaMaster);
+	                	
+	                	System.out.print("\n    Materiais utilizados na produção.");
+	                	
+	                	System.out.print("\n    TNT (6 unidade): ");
+	                	int utilizadaTNT = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoTNT(utilizadaTNT);
+	                	
+	                	if (somaTNT > 0) {
+	                		somaTNT = somaTNT - utilizadaTNT;
+	                	}
+	                	else {
+	                		subtracaoTNT = materiais.getQtdTNT() - utilizadaTNT;
+	                	}
+	                	
+	                	
+	                	System.out.print("    SMS (6 unidade): ");
+	                	int utilizadaSMS = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoSMS(utilizadaSMS);
+	                	
+	                	
+	                	
+	                	
+	                	System.out.print("    Clip Nasal (6 unidade): ");
+	                	int utilizadaClipNasal = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoClipNasal(utilizadaClipNasal);
+	                	
+	                	System.out.print("    Caixa de elástico (1 unidade): ");
+	                	int utilizadaCaixaElastico = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoCaixaElastico(utilizadaCaixaElastico);
+	                	
+	                	System.out.print("    Caixa 50 unidades de mascaras (200 unidades): ");
+	                	int utilizadaCaixaUnidade = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoCaixaUnidade(utilizadaCaixaUnidade);
+	                	
+	                	System.out.print("    Caixa Master (10 unidades): ");
+	                	int utilizadaCaixaMaster = scan.nextInt();
+	                	relatorio.setMaterialUtilizadoCaixaMaster(utilizadaCaixaMaster);
+						
+						break;
+						
+						
+					case 3:
+						
+						
+						
+						break;
+						
+						
+					}
                 	
                 	
                 	
