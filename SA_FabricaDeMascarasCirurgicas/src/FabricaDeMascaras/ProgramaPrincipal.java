@@ -161,6 +161,8 @@ public class ProgramaPrincipal {
 						String email = scan.next();
 						clienteCadastro.setEmail(email);
 						
+						System.out.println("\n\n    ******CADASTRO FEITO COM SUCESSO******");
+						
 						
                 		listCliente.add(i,clienteCadastro);//Adicionar os dados lidos no ArrayList
                 		
@@ -247,6 +249,7 @@ public class ProgramaPrincipal {
 						String email = scan.next();
 						funcionarioCadastro.setEmail(email);
 						
+						System.out.println("\n\n    ******CADASTRO FEITO COM SUCESSO******");
 						
                 		listFuncionario.add(funcionarioCadastro);
                 		
